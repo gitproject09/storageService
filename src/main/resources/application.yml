@@ -1,0 +1,48 @@
+spring:
+  # Database Configuration
+  datasource:
+    # PostgreSQL configuration
+    url: jdbc:postgresql://localhost:5432/storagedb
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: sql
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  # File upload configuration
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+# Image Token Configuration
+app:
+  image:
+    token:
+      secret: your-secure-random-key-at-least-32-bytes-long
+      expiration: 300
+  base-url: https://yourdomain.com
+
+# MinIO Configuration
+minio:
+  url: http://192.168.61.65:9000
+  access-key: fIHOGzNauRDyyGFUGp7L
+  secret-key: gPdhcLSbQ4yoXoQ6sjh7289ZHp38Q5IuBS3VOjHv
+  bucket: ride-share
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+
